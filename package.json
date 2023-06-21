@@ -1,15 +1,30 @@
 {
   "name": "aeauto-update",
   "version": "0.0.0",
+  "description": "This is demo project for angular electron auto-update",
+  "author": {
+    "name": "Minal Pariyawala",
+    "email": "pariyawalaminal96@gmail.com"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm-run-all -p electron:serve ng:serve",
     "build": "ng build",
+    "ng:serve": "ng serve -c web -o",
+    "electron:serve-tsc": "tsc -p tsconfig.serve.json",
+    "electron:serve": "wait-on tcp:4200 && npm run electron:serve-tsc && electron . --serve",
+    "electron:local": "npm run build && electron .",
+    "electron:linux": "npm run build && npm electron-builder build --linux",
+    "electron:windows": "npm electron-builder build --windows",
+    "electron:mac": "npm run build && npm electron-builder build --mac",
+    "electron": "electron",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
+  "main": "main.js",
   "dependencies": {
+    "@angular-builders/custom-webpack": "^16.0.0",
     "@angular/animations": "^15.2.0",
     "@angular/common": "^15.2.0",
     "@angular/compiler": "^15.2.0",
@@ -27,12 +42,18 @@
     "@angular/cli": "~15.2.4",
     "@angular/compiler-cli": "^15.2.0",
     "@types/jasmine": "~4.3.0",
+    "electron": "^25.1.1",
+    "electron-builder": "^24.4.0",
+    "electron-renderer": "^2.0.4",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~4.9.4"
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "npm-run-all": "^4.1.5",
+    "typescript": "~4.9.4",
+    "wait-on": "^7.0.1"
   }
 }
