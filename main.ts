@@ -1,3 +1,6 @@
+import { receiveMessageFromRender } from './desktop/receive-message-from-render/receive-message-from-render';
+import { shortcutRegister } from './desktop/shortcut-register/shortcut-register';
+import { updateHandler } from './desktop/update-handler/update-handler';
 import { app, BrowserWindow, screen, globalShortcut } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
@@ -48,7 +51,7 @@ function createWindow() {
         win.loadURL('http://localhost:4200');
     } else {
         win.loadURL(url.format({
-            pathname: path.join(__dirname, 'dist/angular-electron-autoUpdater/index.html'),
+            pathname: path.join(__dirname, 'dist/index.html'),
             protocol: 'file:',
             slashes: true
         }));
@@ -60,7 +63,7 @@ function createWindow() {
         win = null;
     });
     app.requestSingleInstanceLock();  // Run only one electron application window
-    // updateHandler();
-    // receiveMessageFromRender();
-    // shortcutRegister();
+    updateHandler();
+    receiveMessageFromRender();
+    shortcutRegister();
 }

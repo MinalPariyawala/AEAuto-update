@@ -1,0 +1,1 @@
+{"version":3,"file":"send-message-to-render.js","sourceRoot":"","sources":["send-message-to-render.ts"],"names":[],"mappings":";;;AAAA,qCAA+B;AAE/B,SAAgB,mBAAmB,CAAC,OAAc,EAAC,IAAW;IAC1D,UAAG,CAAC,WAAW,CAAC,EAAE,CAAC,iBAAiB,EAAE,GAAG,EAAE;QACvC,UAAG,CAAC,WAAW,CAAC,IAAI,CAAC,OAAO,EAAE,IAAI,CAAC,CAAC;IACxC,CAAC,CAAC,CAAC;AACP,CAAC;AAJD,kDAIC"}

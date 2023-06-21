@@ -1,4 +1,6 @@
 {
+  "productName": "AEAuto-updater",
+  "appId": "com.electron.AEAuto-updater",
   "asar": true,
   "directories": {
     "output": "release/"
@@ -28,5 +30,14 @@
     "target": [
       "AppImage"
     ]
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": true,
+    "allowElevation": true,
+    "allowToChangeInstallationDirectory": true,
+    "runAfterFinish": false,
+    "createStartMenuShortcut": true,
+    "createDesktopShortcut": true
   }
 }
