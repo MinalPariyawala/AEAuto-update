@@ -12,6 +12,11 @@
     "!package.json",
     "!package-lock.json"
   ],
+  "publish": [{
+    "provider": "github",
+    "owner": "MinalPariyawala",
+    "repo": "AEAuto-update"
+  }],
   "win": {
     "target": "nsis"
   },

@@ -15,11 +15,12 @@
     "electron:serve": "wait-on tcp:4201 && npm run electron:serve-tsc && electron . --serve",
     "electron:local": "npm run build && electron .",
     "electron:linux": "npm run build && npm electron-builder build --linux",
-    "electron:windows": "npm run build && electron-builder build --win",
+    "electron:windows": "npm run build && electron-builder build --win -p always",
     "electron:mac": "npm run build && npm electron-builder build --mac",
     "electron": "electron",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "publish": "electron-builder --win -p always"
   },
   "main": "main.js",
   "dependencies": {
@@ -38,10 +39,9 @@
     "tslib": "^2.3.0",
     "zone.js": "~0.13.1"
   },
-  "repository": "https://github.com/MinalPariyawala/AEAuto-update",
-  "publish": {
-    "provider": "github",
-    "releaseType": "draft"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MinalPariyawala/AEAuto-update.git"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.1.0",
