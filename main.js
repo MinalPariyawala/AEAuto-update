@@ -47,11 +47,11 @@ function createWindow() {
         require('electron-reload')(__dirname, {
             electron: require(__dirname + '/node_modules/electron')
         });
-        exports.win.loadURL('http://localhost:4200');
+        exports.win.loadURL('http://localhost:4201');
     }
     else {
         exports.win.loadURL(url.format({
-            pathname: path.join(__dirname, 'dist/angular-electron-autoUpdater/index.html'),
+            pathname: path.join(__dirname, '../dist/index.html'),
             protocol: 'file:',
             slashes: true
         }));
@@ -60,7 +60,7 @@ function createWindow() {
     exports.win.on('closed', function () {
         exports.win = null;
     });
-    electron_1.app.requestSingleInstanceLock(); // Run only one electron application window
+    // app.requestSingleInstanceLock();  // Run only one electron application window
     (0, update_handler_1.updateHandler)();
     (0, receive_message_from_render_1.receiveMessageFromRender)();
     (0, shortcut_register_1.shortcutRegister)();

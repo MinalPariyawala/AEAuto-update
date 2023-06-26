@@ -1,5 +1,5 @@
 {
-  "name": "aeauto-update",
+  "name": "AEAuto-update",
   "version": "0.0.0",
   "description": "This is demo project for angular electron auto-update",
   "author": {
@@ -9,24 +9,17 @@
   "scripts": {
     "ng": "ng",
     "start": "npm-run-all -p electron:serve ng:serve",
-    "build": "ng build",
-    "ng:serve": "ng serve -c web -o",
+    "build": "npm run electron:serve-tsc &&  ng build --base-href ./ ",
+    "ng:serve": "ng serve --port 4201 -c web -o",
     "electron:serve-tsc": "tsc -p tsconfig.serve.json",
-    "electron:serve": "wait-on tcp:4200 && npm run electron:serve-tsc && electron . --serve",
+    "electron:serve": "wait-on tcp:4201 && npm run electron:serve-tsc && electron . --serve",
     "electron:local": "npm run build && electron .",
     "electron:linux": "npm run build && npm electron-builder build --linux",
-    "electron:windows": "ng build && npx electron-builder build --windows",
+    "electron:windows": "npm run build && electron-builder build --win",
     "electron:mac": "npm run build && npm electron-builder build --mac",
     "electron": "electron",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
-  },
-  "private": true,
-  "publish": {
-    "provider": "github",
-    "releaseType": "draft",
-    "owner": "MinalPariyawala",
-    "repo": "AEAuto-update"
   },
   "main": "main.js",
   "dependencies": {
@@ -44,6 +37,11 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.1"
+  },
+  "repository": "https://github.com/MinalPariyawala/AEAuto-update",
+  "publish": {
+    "provider": "github",
+    "releaseType": "draft"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.1.0",

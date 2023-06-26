@@ -1,6 +1,6 @@
 {
-  "productName": "AEAuto-updater",
-  "appId": "com.electron.AEAuto-updater",
+  "productName": "AEAuto-update",
+  "appId": "com.electron.AEAuto-update",
   "asar": true,
   "directories": {
     "output": "release/"
@@ -10,16 +10,10 @@
     "!**/*.ts",
     "!*.map",
     "!package.json",
-    "!package-lock.json",
-    {
-      "from": "../dist",
-      "filter": ["**/*"]
-    }
+    "!package-lock.json"
   ],
   "win": {
-    "target": [
-      "portable"
-    ]
+    "target": "nsis"
   },
   "mac": {
     "target": [
